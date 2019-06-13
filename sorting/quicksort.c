@@ -43,14 +43,14 @@ int main()
 	int a[n];
 	printf("\nEnter the numbers \n");
  	for(i = 0; i < n; i++)
-    {
-        printf("%d :",i+1);
-        scanf("%d",&a[i]);
-    }
-    quicksort(a,0,n-1);
-    printf("Your sorted numbers: ");
-    for(i = 0; i < n; i++)
-        printf("%d ",a[i]);
-    printf("\n");
-    return 0;
+    	{
+        	printf("%d :",i+1);
+        	scanf("%d",&a[i]);
+    	}
+    	quicksort(a,0,n-1);
+    	printf("Your sorted numbers: ");
+    	for(i = 0; i < n; i++)
+        	printf("%d ",a[i]);
+    	printf("\n");
+    	return 0;
 }
