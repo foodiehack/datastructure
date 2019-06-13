@@ -11,7 +11,7 @@ void swap(int *a,int i,int min)
 }
 void bubblesort(int *a,int n)
 {
-	int i,j;
+    int i,j;
     for(i = 0; i < n-1; i++)
     {
         int flag =0;
@@ -32,17 +32,18 @@ int main()
 	int i,n; 
 	printf("How many number do you want to enter:");
 	scanf("%d",&n);
-	int a[n];
+	//int a[n];  This is a wrong way as memory is given to array at compile time.
+	int *a = (int*)malloc(n*sizeof(int)); //dynamic memory allocation
 	printf("\nEnter the numbers \n");
- 	for(i = 0; i < n; i++)
-    {
-        printf("%d :",i+1);
-        scanf("%d",&a[i]);
-    }
-    bubblesort(a,n);
-    printf("Your sorted numbers: ");
-    for(i = 0; i < n; i++)
-        printf("%d ",a[i]);
-    printf("\n");
-    return 0;
+	for(i = 0; i < n; i++)
+	{
+		printf("%d :",i+1);
+		scanf("%d",&a[i]);
+	}
+	bubblesort(a,n);
+	printf("Your sorted numbers: ");
+	for(i = 0; i < n; i++)
+		printf("%d ",a[i]);
+	printf("\n");
+	return 0;
 }
