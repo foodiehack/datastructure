@@ -42,9 +42,6 @@ void mergesort(int a[],int n)
 {
 	if(n < 2)
 		return;
-	else{
-		
-	}
 	int i, mid = n/2;
 	int left[mid],right[n-mid];
 	for(i = 0;i < mid;i++)
@@ -68,14 +65,14 @@ int main()
 	int a[n];
 	printf("\nEnter the numbers \n");
  	for(i = 0; i < n; i++)
-    {
-        printf("%d :",i+1);
-        scanf("%d",&a[i]);
-    }
-    mergesort(a,n);
-    printf("Your sorted numbers: ");
-    for(i = 0; i < n; i++)
-        printf("%d ",a[i]);
-    printf("\n");
-    return 0;
+    	{
+        	printf("%d :",i+1);
+        	scanf("%d",&a[i]);
+    	}
+        mergesort(a,n);
+        printf("Your sorted numbers: ");
+        for(i = 0; i < n; i++)
+        	printf("%d ",a[i]);
+    	printf("\n");
+    	return 0;
 }
