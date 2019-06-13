@@ -151,21 +151,21 @@ void quicksort(int a[],int start,int end)
 }
 int main()
 {	
-	clock_t	start;
-	clock_t end;
+    clock_t start,end;
     int ch,n;
     char ans;
     while(1)
     {
-    	printf("How many number do you want to enter:");
+    	    printf("How many number do you want to enter:");
 	    scanf("%d",&n);
-	    int a[n];
+	    //int a[n];  This is a wrong way as memory is given to array at compile time.
+	    int *a = (int*)malloc(n*sizeof(int)); //dynamic memory allocation
 	    printf("Want random numbers(y/Y):");
 	    scanf(" %c",&ans);
 	    
 	    if(ans == 'y' || ans == 'Y')
 	    {
-	    	int b[n];
+	        int b[n];
     		for(i = 0; i < n; i++)
 	    	{
 	    		a[i] = rand();
@@ -177,12 +177,12 @@ int main()
 	        end = clock();
 	        calc_time(start,end,"Selection Sort");
 	        
-	   		for(i = 0; i < n; i++)
+	   	for(i = 0; i < n; i++)
 	    	{
 	    		b[i] = a[i];
 	    	}
        		start = clock();
-  		 	bubblesort(b,n);
+  		bubblesort(b,n);
 	        end = clock();
 	        calc_time(start,end,"Bubble Sort");
     	    
@@ -190,8 +190,8 @@ int main()
 	    	{
 	    		b[i] = a[i];
 	    	}
- 			start = clock();
-  		 	insertionsort(b,n);
+ 		start = clock();
+  		insertionsort(b,n);
 	        end = clock();
 	        calc_time(start,end,"Insertion Sort");
 	        
@@ -199,8 +199,8 @@ int main()
 	    	{
 	    		b[i] = a[i];
 	    	}
- 	 		start = clock();
-	 	 	mergesort(b,n);
+ 	 	start = clock();
+	 	mergesort(b,n);
 	        end = clock();
 	        calc_time(start,end,"Merge Sort");
 	        
@@ -208,21 +208,21 @@ int main()
 	    	{
 	    		b[i] = a[i];
 	    	}
- 	 		start = clock();
-	 	 	quicksort(b,0,n-1);
+ 	 	start = clock();
+	 	quicksort(b,0,n-1);
 	        end = clock();
 	        calc_time(start,end,"Quick Sort");
-    	}
-    	else
-    	{
-  			printf("\nEnter the numbers \n");
+    	    }
+    	    else
+    	    {
+  		    printf("\nEnter the numbers \n");
 		    for(i = 0; i < n; i++)
 		    {
-		        printf("%d :",i+1);
-		        scanf("%d",&a[i]);
+			printf("%d :",i+1);
+			scanf("%d",&a[i]);
 		    }
-	    
-	    
+
+
 		    printf("\n\n1.) Selection Sort \n");
 		    printf("2.) Bubble Sort \n");
 		    printf("3.) Insertion Sort \n");
@@ -234,47 +234,47 @@ int main()
 		    switch(ch)
 		    {
 		    case 1:
-		    	
-		    	start = clock();
-		        selectionsort(a,n);
-	        	display(a,n);
-		        end = clock();
-		        calc_time(start,end,"Selection Sort");
-		        break;
+
+			start = clock();
+			selectionsort(a,n);
+			display(a,n);
+			end = clock();
+			calc_time(start,end,"Selection Sort");
+			break;
 		    case 2:
-	    		start = clock();
-	  		 	bubblesort(a,n);	  		 	    
-				display(a,n);
-		        end = clock();
-		        calc_time(start,end,"Bubble Sort");
-		        break;
+			start = clock();
+			bubblesort(a,n);	  		 	    
+			display(a,n);
+			end = clock();
+			calc_time(start,end,"Bubble Sort");
+			break;
 		    case 3:
-	 			start = clock();
-	  		 	insertionsort(a,n);
-  		 		display(a,n);
-		        end = clock();
-		        calc_time(start,end,"Insertion Sort");
-		        break;
+			start = clock();
+			insertionsort(a,n);
+			display(a,n);
+			end = clock();
+			calc_time(start,end,"Insertion Sort");
+			break;
 		    case 4:
-	 	 		start = clock();
-		 	 	mergesort(a,n);
-		 	 	display(a,n);
-		        end = clock();
-		        calc_time(start,end,"Merge Sort");
-		        break;
+			start = clock();
+			mergesort(a,n);
+			display(a,n);
+			end = clock();
+			calc_time(start,end,"Merge Sort");
+			break;
 		    case 5:
-	 	 		start = clock();
-		 	 	quicksort(a,0,n-1);
-	 	 		display(a,n);
-		        end = clock();
-		        calc_time(start,end,"Quick Sort");
-		        break;
+			start = clock();
+			quicksort(a,0,n-1);
+			display(a,n);
+			end = clock();
+			calc_time(start,end,"Quick Sort");
+			break;
 		    case 6:
-		        exit(1);
-		        break;
+			exit(1);
+			break;
 		    default:
-		        printf("Enter valid number \n\n");
-		        break;
+			printf("Enter valid number \n\n");
+			break;
 		    }
 	    }
 	    printf("Do you want to continue(y/Y):");
